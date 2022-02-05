@@ -1,15 +1,17 @@
 const express = require("express");
-const ejs = require("ejs");
 const app = express();
-require("dotenv").config();
-const PORT = process.env.PORT || 7000;
+const ejs = require("ejs");
+
+const { PORT } = require("./config");
 const router = require("./controllers");
+const cookieParser = require("cookie-parser");
 
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use("/assets", express.static("public"));
+app.use(cookieParser());
 app.use(router);
 
-app.listen(PORT, () => {
+app.listen({ port: PORT }, () => {
   console.log(`localhost://${PORT}`);
 });
