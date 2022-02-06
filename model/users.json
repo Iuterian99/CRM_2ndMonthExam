@@ -1,8 +1,14 @@
 [
   {
     "id": 1,
-    "name": "Abduhaim",
+    "name": "Abduhalim",
     "password": "998999058838",
     "role": "admin"
+  },
+  {
+    "id": 2,
+    "name": "Muslim",
+    "password": "999999999",
+    "role": "teacher"
   }
 ]
