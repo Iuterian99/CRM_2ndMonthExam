@@ -1,13 +1,21 @@
-const FS = require("fs");
-const users = new FS("../lib/fsDeal");
+const FS = require("../lib/fsDeal");
+const users = new FS("../model/users.json");
 module.exports = {
   Login: (req, res) => {
     try {
       const { name, password } = req.body;
 
-      users.push({ id: users.length + 1, name, password });
+      const allUsers = JSON.parse(users.read());
+      foundUser = allUsers.find((e) => e.name == name, e.password == password);
 
-      console.log(users);
+      if (!foundUser) {
+        res.status(404).send({
+          message: "User not found",
+          status: 404,
+        });
+      }
+      req.body.role = foundUser.role;
+      console.log(foundUser);
     } catch (err) {
       console.log(err);
     }
