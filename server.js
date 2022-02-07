@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
+const cookie = require("cookie-parser");
 
 const { PORT } = require("./config");
 const router = require("./controllers");
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/assets", express.static("public"));
 app.use(cookieParser());
 app.use(router);
+app.use(cookie());
 
 app.listen({ port: PORT }, () => {
   console.log(`localhost://${PORT}`);

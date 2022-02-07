@@ -14,62 +14,12 @@
     <title>Admin page</title>
   </head>
   <body>
-    <header class="header p-3 w-100">
-      <div class="row d-flex align-items-center">
-        <div class="col-8 d-flex justify-content-evenly align-items-center">
-          <h3 class="center-name text-light">Оooтлично 👍</h3>
-          <a class="header-info text-light text-decoration-none" href="#"
-            >Ma`lumot</a
-          >
-          <a class="header-info text-light text-decoration-none" href="#"
-            >Mavjud kurslar</a
-          >
-        </div>
-        <div class="col-4 d-flex">
-          <p class="text-light m-0 me-2">Tel:</p>
-          <a
-            class="tel-link me-3 text-light text-decoration-none d-block"
-            href="tel:+998998054812"
-            >+998998054812</a
-          >
-          <a
-            class="tel-link text-light text-decoration-none d-block"
-            href="tel:+998992242727"
-            >+998992242727</a
-          >
-        </div>
-      </div>
-      <div class="contact d-flex"></div>
-    </header>
-
+    <%- include("./general/header.ejs") -%>
     <div class="container">
       <main class="main">
         <div class="row">
           <div class="col-2">
-            <navbar class="left-navbar">
-              <ul class="navbar-list list-unstyled pt-5">
-                <li class="navbar-item mb-4">
-                  <a href="" class="navbar-item-link text-decoration-none"
-                    >👩‍🏫 O`qtuvchilar</a
-                  >
-                </li>
-                <li class="navbar-item mb-4">
-                  <a href="" class="navbar-item-link text-decoration-none"
-                    >👨‍🎓 O`quvchilar</a
-                  >
-                </li>
-                <li class="navbar-item mb-4">
-                  <a href="" class="navbar-item-link text-decoration-none"
-                    >👩🏼‍🤝‍👩🏼 Guruhlar</a
-                  >
-                </li>
-                <li class="navbar-item mb-4">
-                  <a href="" class="navbar-item-link text-decoration-none"
-                    >📚 Kurslar</a
-                  >
-                </li>
-              </ul>
-            </navbar>
+            <%- include("./general/sidebar.ejs", {page: "index"})%>
           </div>
           <div class="col-10"></div>
         </div>
