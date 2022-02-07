@@ -1,6 +1,5 @@
 const FS = require("../lib/fsDeal");
 const { signUser, verifyUser } = require("../lib/jwt");
-const { SECRET_KEY } = require("../config");
 const users = new FS("../model/users.json");
 module.exports = {
   Login: (req, res, next) => {
@@ -33,10 +32,7 @@ module.exports = {
       res.redirect("/login");
     }
     try {
-      const hasLogin = verifyUser(userToken, SECRET_KEY);
-      if (req.name == hasLogin.name && req.password == hasLogin.password) {
-        next();
-      }
+      next();
     } catch (err) {
       console.log(err);
     }
