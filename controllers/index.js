@@ -34,4 +34,8 @@ router.get("/teacher", (req, res) => {
   res.render("teacher");
 });
 
+router.get("/admin/teachers", (req, res) => {
+  res.render("nestedEJS/teachers.ejs");
+});
+
 module.exports = router;

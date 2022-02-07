@@ -1,0 +1,33 @@
+.header {
+  background-color: #6f42c1;
+}
+
+.header-info:hover {
+  border-bottom: 0.5px solid white;
+}
+
+.tel-link:hover {
+  border-bottom: 0.5px solid white;
+}
+
+.navbar-list {
+  /* width: 150px; */
+  height: 500px;
+  border-right: 5px solid #6f42c1;
+}
+
+.navbar-item-link {
+  color: #6f42c1;
+}
+
+.navbar-item-link:hover {
+  border-bottom: 3px solid #6f42c1;
+  padding-bottom: 4px;
+  color: blue;
+}
+
+.navbar-item-link:active {
+  border-bottom: 3px solid #6f42c1;
+  padding-bottom: 4px;
+  color: blue;
+}
