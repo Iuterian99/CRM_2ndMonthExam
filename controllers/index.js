@@ -2,13 +2,15 @@ const express = require("express");
 const router = express.Router();
 const FS = require("../lib/fsDeal");
 const users = new FS("../model/users.json");
-const { Login } = require("./authController");
+const { Login, isLogged } = require("./authController");
 
 router.get("/", (req, res) => {
   const foundUsers = JSON.parse(users.read());
   res.render("login");
   console.log(foundUsers);
 });
+
+router.use(isLogged);
 
 router.post("/login", Login, (req, res) => {
   const { role } = req.body;
@@ -24,8 +26,6 @@ router.post("/login", Login, (req, res) => {
     });
   }
 });
-
-router.use(isLogged);
 
 router.get("/admin", (req, res) => {
   console.log(req.cookies.Token);
