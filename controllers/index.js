@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const cookie = require("cookie-parser");
 const FS = require("../lib/fsDeal");
 const users = new FS("../model/users.json");
 const { Login } = require("./authController");
@@ -26,7 +25,10 @@ router.post("/login", Login, (req, res) => {
   }
 });
 
+router.use(isLogged);
+
 router.get("/admin", (req, res) => {
+  console.log(req.cookies.Token);
   res.render("admin");
 });
 

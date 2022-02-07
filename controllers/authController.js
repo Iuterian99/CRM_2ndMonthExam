@@ -11,9 +11,8 @@ module.exports = {
         (e) => e.name == name && e.password == password
       );
       const token = signUser({ name, password });
-      console.log(token);
+      res.cookie("Token", token);
 
-      // res.cookie("Token", token);
       if (!foundUser) {
         res.status(404).send({
           message: "User not found",
@@ -26,4 +25,8 @@ module.exports = {
       console.log(err);
     }
   },
+
+  isLogged: (req, res, next){
+    
+  }
 };
