@@ -3,12 +3,22 @@
     "id": 1,
     "name": "Abduhalim",
     "password": "998999058838",
-    "role": "admin"
+    "role": "admin",
+    "gender": "Erkak"
   },
   {
     "id": 2,
     "name": "Muslim",
     "password": "999999999",
-    "role": "teacher"
+    "role": "teacher",
+    "subject": "Iqtisodiyot Asoslari",
+    "gender": "Erkak"
+  },
+  {
+    "id": 3,
+    "name": "Sardor",
+    "password": "1",
+    "role": "student",
+    "gender": "Erkak"
   }
 ]

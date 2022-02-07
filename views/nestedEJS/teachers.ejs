@@ -22,9 +22,87 @@
           <div class="col-2">
             <%- include("../general/sidebar.ejs", {page: "index"})%>
           </div>
-          <div class="col-10"></div>
+          <div class="col-10">
+            <% for( let e of teachers ) { %>
+            <h2 class="teacher-header text-center mt-3">Teachers</h2>
+            <ol class="m-0 p-0 mt-3">
+              <li class="ms-3">
+                <div class="row">
+                  <div class="col-4 addborder">
+                    <h4 class="name mb-0 me-2">Ismi:</h4>
+                    <%= e.name %>
+                  </div>
+                  <div class="col-4 addborder">
+                    <h4 class="name mb-0 me-2">Fani:</h4>
+                    <%= e.subject %>
+                  </div>
+                  <div class="col-4 addborder">
+                    <h4 class="name mb-0 me-2">Jinsi:</h4>
+                    <%= e.gender %>
+                  </div>
+                </div>
+              </li>
+            </ol>
+            <% } %>
+            <button
+              class="addBtn w-100 mt-3"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"
+            >
+              👩‍🏫 Yangi O`qituvchi qo`shish 👩‍🏫
+            </button>
+
+            <div
+              class="offcanvas offcanvas-end"
+              tabindex="-1"
+              id="offcanvasRight"
+              aria-labelledby="offcanvasRightLabel"
+            >
+              <div class="offcanvas-header">
+                <h5 class="teacher-header fs-3" id="offcanvasRightLabel">
+                  O`qituvchi qo`shish
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close text-reset"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <form action="#">
+                  <input
+                    type="text"
+                    class="form-control mb-3"
+                    placeholder="Ismi"
+                  />
+                  <input
+                    type="text"
+                    class="form-control mb-3"
+                    placeholder="Fani"
+                  />
+                  <input
+                    type="text"
+                    class="form-control mb-3"
+                    placeholder="Jinsi"
+                  />
+                  <button class="addBtn w-100 mx-auto" type="submit">
+                    Qo`shish
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

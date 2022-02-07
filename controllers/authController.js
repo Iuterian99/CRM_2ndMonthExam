@@ -14,10 +14,7 @@ module.exports = {
       res.cookie("Token", token);
 
       if (!foundUser) {
-        res.status(404).send({
-          message: "User not found",
-          status: 404,
-        });
+        return res.redirect("/");
       }
       req.body.role = foundUser.role;
       next();
@@ -28,13 +25,10 @@ module.exports = {
 
   isLogged: (req, res, next) => {
     const userToken = req.cookies.Token;
+
     if (!userToken) {
-      res.redirect("/login");
+      return res.redirect("/");
     }
-    try {
-      next();
-    } catch (err) {
-      console.log(err);
-    }
+    next();
   },
 };

@@ -1,0 +1,19 @@
+.teacher-header {
+  color: #6f42c1;
+  font-weight: bold;
+}
+
+.addborder {
+  border-bottom: 3px solid #6f42c1;
+  border-right: 3px solid #6f42c1;
+}
+
+.addBtn {
+  background-color: #6f42c1;
+  color: white;
+  padding: 5px;
+}
+
+.addBtn:hover {
+  background-color: #8f6ccf;
+}
