@@ -1,7 +1,7 @@
 const customFs = require("../lib/fsDeal");
 const users = new customFs("../model/users.json");
 const allGroups = new customFs("../model/group.json");
-const courses = new customFs("../model/courses.json");
+const allCourses = new customFs("../model/courses.json");
 const hw = new customFs("../model/homework.json");
 
 class adminController {
@@ -34,7 +34,8 @@ class adminController {
   }
   async course(_, res) {
     try {
-      res.render("nestedEJS/courses.ejs");
+      const courses = JSON.parse(allCourses.read());
+      res.render("nestedEJS/courses.ejs", { courses });
     } catch (error) {
       console.log(error);
     }
@@ -95,6 +96,20 @@ class adminController {
       });
       allGroups.write(groups);
       res.redirect("/admin/groups");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async addCourse(req, res) {
+    try {
+      const { name } = req.body;
+      const courses = JSON.parse(allCourses.read());
+      courses.push({
+        id: courses.length + 1,
+        name,
+      });
+      allCourses.write(courses);
+      res.redirect("/admin/courses");
     } catch (err) {
       console.log(err);
     }
