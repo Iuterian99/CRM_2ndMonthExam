@@ -1,5 +1,8 @@
 const customFs = require("../lib/fsDeal");
 const users = new customFs("../model/users.json");
+const allGroups = new customFs("../model/group.json");
+const courses = new customFs("../model/courses.json");
+const hw = new customFs("../model/homework.json");
 
 class adminController {
   async redirect(_, res) {
@@ -38,9 +41,62 @@ class adminController {
   }
   async groups(_, res) {
     try {
-      res.render("nestedEJS/groups.ejs");
+      const groups = JSON.parse(allGroups.read());
+      res.render("nestedEJS/groups.ejs", { groups });
     } catch (error) {
       console.log(error);
+    }
+  }
+  async addTeacher(req, res) {
+    try {
+      const { name, tel, course, gender, group } = req.body;
+      const allUsers = JSON.parse(users.read());
+      allUsers.push({
+        id: allUsers.length + 1,
+        name,
+        password: tel,
+        course,
+        gender,
+        group,
+        role: "teacher",
+      });
+      users.write(allUsers);
+      res.redirect("/admin/teachers");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async addStudent(req, res) {
+    try {
+      const { name, tel, course, gender, group } = req.body;
+      const allUsers = JSON.parse(users.read());
+      allUsers.push({
+        id: allUsers.length + 1,
+        name,
+        password: tel,
+        course,
+        gender,
+        group,
+        role: "student",
+      });
+      users.write(allUsers);
+      res.redirect("/admin/students");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async addGroup(req, res) {
+    try {
+      const { name } = req.body;
+      const groups = JSON.parse(allGroups.read());
+      groups.push({
+        id: groups.length + 1,
+        name,
+      });
+      allGroups.write(groups);
+      res.redirect("/admin/groups");
+    } catch (err) {
+      console.log(err);
     }
   }
 }

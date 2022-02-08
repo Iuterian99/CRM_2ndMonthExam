@@ -1,24 +1,72 @@
 [
-  {
-    "id": 1,
-    "name": "Abduhalim",
-    "password": "998999058838",
-    "role": "admin",
-    "gender": "Erkak"
-  },
-  {
-    "id": 2,
-    "name": "Muslim",
-    "password": "999999999",
-    "role": "teacher",
-    "subject": "Iqtisodiyot Asoslari",
-    "gender": "Erkak"
-  },
-  {
-    "id": 3,
-    "name": "Sardor",
-    "password": "1",
-    "role": "student",
-    "gender": "Erkak"
-  }
+    {
+        "id": 1,
+        "name": "Abduhalim",
+        "password": "998999058838",
+        "role": "admin",
+        "gender": "Erkak"
+    },
+    {
+        "id": 2,
+        "name": "Muslim",
+        "password": "999999999",
+        "role": "teacher",
+        "gender": "Erkak",
+        "course": "Rus TiliN1",
+        "group": "Kattalar"
+    },
+    {
+        "id": 3,
+        "name": "Shoxrux",
+        "password": "000",
+        "role": "teacher",
+        "course": "Rus TiliN2",
+        "gender": "Erkak",
+        "group": "Bolalar"
+    },
+    {
+        "id": 4,
+        "name": "Malika",
+        "password": "0000",
+        "role": "teacher",
+        "course": "Rus TiliN3",
+        "gender": "Ayol",
+        "group": "Ayollar"
+    },
+    {
+        "id": 5,
+        "name": "Sardor",
+        "password": "1",
+        "role": "student",
+        "course": "Rus TiliN3",
+        "gender": "Erkak",
+        "group": "Bolalar"
+    },
+    {
+        "id": 6,
+        "name": "Abduhalim",
+        "password": "1",
+        "course": "Rus TiliN5",
+        "gender": "erkak",
+        "group": "kattalar",
+        "role": "teacher"
+    },
+    {
+        "id": 7,
+        "name": "asila",
+        "password": "12",
+        "course": "Rus TiliN2",
+        "gender": "ayol",
+        "group": "ayollar",
+        "role": "student"
+    },
+    {
+        "id": 8,
+        "name": "asilbek",
+        "password": "1111",
+        "course": "Rus TiliN1",
+        "gender": "erkak",
+        "group": "bolalar",
+        "role": "student"
+    }
 ]

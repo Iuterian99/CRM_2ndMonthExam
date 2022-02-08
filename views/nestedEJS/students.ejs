@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/css/nestedCSS/students.css" />
+    <link rel="stylesheet" href="/assets/css/nestedCSS/teachers.css" />
     <link rel="stylesheet" href="/assets/css/general.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -22,9 +22,124 @@
           <div class="col-2">
             <%- include("../general/sidebar.ejs", {page: "index"})%>
           </div>
-          <div class="col-10">students</div>
+          <div class="col-10">
+            <h2 class="teacher-header text-center mt-3">O`quvchilar</h2>
+            <% for( let e of students ) { %>
+            <ul class="list-unstyled m-0 p-0 mt-3">
+              <li class="ms-3">
+                <div class="row">
+                  <div class="col-3 addborder d-flex align-items-center">
+                    <h4 class="name mb-0 me-2">Ismi:</h4>
+                    <%= e.name %>
+                  </div>
+                  <div class="col-3 addborder d-flex align-items-center">
+                    <h4 class="name mb-0 me-2">Kursi:</h4>
+                    <%= e.course %>
+                  </div>
+                  <div class="col-3 addborder d-flex align-items-center">
+                    <h4 class="name mb-0 me-2">Jinsi:</h4>
+                    <%= e.gender %>
+                  </div>
+                  <div class="col-3 addborder d-flex align-items-center">
+                    <h4 class="name mb-0 me-2">Guruhi:</h4>
+                    <%= e.group %>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <% } %>
+            <button
+              class="addBtn w-100 mt-3"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"
+            >
+              👩‍🎓 Yangi O`quvchi qo`shish 👨‍🎓
+            </button>
+
+            <div
+              class="offcanvas offcanvas-end"
+              tabindex="-1"
+              id="offcanvasRight"
+              aria-labelledby="offcanvasRightLabel"
+            >
+              <div class="offcanvas-header">
+                <h5 class="teacher-header fs-3" id="offcanvasRightLabel">
+                  👩‍🎓 O`quvchi qo`shish 👨‍🎓
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close text-reset"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <form
+                  action="/admin/students"
+                  method="POST"
+                  enctype="application/x-www-form-urlencoded"
+                >
+                  <input
+                    type="text"
+                    class="form-control mb-3"
+                    placeholder="Ismi"
+                    name="name"
+                  />
+                  <input
+                    type="tel"
+                    class="form-control mb-3"
+                    name="tel"
+                    placeholder="telefon raqami"
+                  />
+                  <select
+                    class="form-select form-select-lg mb-3"
+                    name="gender"
+                    aria-label=".form-select-lg example"
+                  >
+                    <option selected>Jinsi</option>
+                    <option value="erkak">Erkak</option>
+                    <option value="ayol">Ayol</option>
+                  </select>
+                  <select
+                    class="form-select form-select-lg mb-3"
+                    name="course"
+                    aria-label=".form-select-lg example"
+                  >
+                    <option selected>Kursi</option>
+                    <option value="Rus TiliN1">Rus TiliN1</option>
+                    <option value="Rus TiliN2">Rus TiliN2</option>
+                    <option value="Rus TiliN3">Rus TiliN3</option>
+                    <option value="Rus TiliN4">Rus TiliN4</option>
+                    <option value="Rus TiliN5">Rus TiliN5</option>
+                  </select>
+                  <select
+                    class="form-select form-select-lg mb-3"
+                    name="group"
+                    aria-label=".form-select-lg example"
+                  >
+                    <option selected>Guruhi</option>
+                    <option value="bolalar">Bolalar</option>
+                    <option value="ayollar">Ayollar</option>
+                    <option value="kattalar">Kattalar</option>
+                    <option value="online">Online</option>
+                  </select>
+                  <button class="addBtn w-100 mx-auto" type="submit">
+                    Qo`shish
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

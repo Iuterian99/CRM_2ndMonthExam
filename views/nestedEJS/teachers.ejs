@@ -23,26 +23,30 @@
             <%- include("../general/sidebar.ejs", {page: "index"})%>
           </div>
           <div class="col-10">
+            <h2 class="teacher-header text-center mt-3">O`qtuvchilar</h2>
             <% for( let e of teachers ) { %>
-            <h2 class="teacher-header text-center mt-3">Teachers</h2>
-            <ol class="m-0 p-0 mt-3">
+            <ul class="list-unstyled m-0 p-0 mt-3">
               <li class="ms-3">
                 <div class="row">
-                  <div class="col-4 addborder">
+                  <div class="col-3 addborder d-flex align-items-center">
                     <h4 class="name mb-0 me-2">Ismi:</h4>
                     <%= e.name %>
                   </div>
-                  <div class="col-4 addborder">
-                    <h4 class="name mb-0 me-2">Fani:</h4>
-                    <%= e.subject %>
+                  <div class="col-3 addborder d-flex align-items-center">
+                    <h4 class="name mb-0 me-2">Kursi:</h4>
+                    <%= e.course %>
                   </div>
-                  <div class="col-4 addborder">
+                  <div class="col-3 addborder d-flex align-items-center">
                     <h4 class="name mb-0 me-2">Jinsi:</h4>
                     <%= e.gender %>
                   </div>
+                  <div class="col-3 addborder d-flex align-items-center">
+                    <h4 class="name mb-0 me-2">Guruhi:</h4>
+                    <%= e.group %>
+                  </div>
                 </div>
               </li>
-            </ol>
+            </ul>
             <% } %>
             <button
               class="addBtn w-100 mt-3"
@@ -51,7 +55,7 @@
               data-bs-target="#offcanvasRight"
               aria-controls="offcanvasRight"
             >
-              👩‍🏫 Yangi O`qituvchi qo`shish 👩‍🏫
+              👩‍🏫 Yangi O`qtuvchi qo`shish 👨‍🏫
             </button>
 
             <div
@@ -62,7 +66,7 @@
             >
               <div class="offcanvas-header">
                 <h5 class="teacher-header fs-3" id="offcanvasRightLabel">
-                  O`qituvchi qo`shish
+                  👩‍🏫 O`qtuvchi qo`shish 👨‍🏫
                 </h5>
                 <button
                   type="button"
@@ -72,22 +76,55 @@
                 ></button>
               </div>
               <div class="offcanvas-body">
-                <form action="#">
+                <form
+                  action="/admin/teachers"
+                  method="POST"
+                  enctype="application/x-www-form-urlencoded"
+                >
                   <input
                     type="text"
                     class="form-control mb-3"
                     placeholder="Ismi"
+                    name="name"
                   />
                   <input
-                    type="text"
+                    type="tel"
                     class="form-control mb-3"
-                    placeholder="Fani"
+                    name="tel"
+                    placeholder="telefon raqami"
                   />
-                  <input
-                    type="text"
-                    class="form-control mb-3"
-                    placeholder="Jinsi"
-                  />
+                  <select
+                    class="form-select form-select-lg mb-3"
+                    name="gender"
+                    aria-label=".form-select-lg example"
+                  >
+                    <option selected>Jinsi</option>
+                    <option value="erkak">Erkak</option>
+                    <option value="ayol">Ayol</option>
+                  </select>
+                  <select
+                    class="form-select form-select-lg mb-3"
+                    name="course"
+                    aria-label=".form-select-lg example"
+                  >
+                    <option selected>Kursi</option>
+                    <option value="Rus TiliN1">Rus TiliN1</option>
+                    <option value="Rus TiliN2">Rus TiliN2</option>
+                    <option value="Rus TiliN3">Rus TiliN3</option>
+                    <option value="Rus TiliN4">Rus TiliN4</option>
+                    <option value="Rus TiliN5">Rus TiliN5</option>
+                  </select>
+                  <select
+                    class="form-select form-select-lg mb-3"
+                    name="group"
+                    aria-label=".form-select-lg example"
+                  >
+                    <option selected>Guruhi</option>
+                    <option value="bolalar">Bolalar</option>
+                    <option value="ayollar">Ayollar</option>
+                    <option value="kattalar">Kattalar</option>
+                    <option value="online">Online</option>
+                  </select>
                   <button class="addBtn w-100 mx-auto" type="submit">
                     Qo`shish
                   </button>

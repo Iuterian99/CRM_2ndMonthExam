@@ -38,6 +38,9 @@ router
   .get("/admin/teachers", adminController.teachers)
   .get("/admin/students", adminController.students)
   .get("/admin/groups", adminController.groups)
-  .get("/admin/courses", adminController.course);
+  .get("/admin/courses", adminController.course)
+  .post("/admin/teachers", adminController.addTeacher)
+  .post("/admin/students", adminController.addStudent)
+  .post("/admin/groups", adminController.addGroup);
 
 module.exports = router;
