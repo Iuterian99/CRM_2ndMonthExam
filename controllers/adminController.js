@@ -132,6 +132,39 @@ class adminController {
       console.log(error);
     }
   }
+  async teacherAddStudent(req, res) {
+    try {
+      const { name, tel, course, gender, group } = req.body;
+      const allUsers = JSON.parse(users.read());
+      allUsers.push({
+        id: allUsers.length + 1,
+        name,
+        password: tel,
+        course,
+        gender,
+        group,
+        role: "student",
+      });
+      users.write(allUsers);
+      res.redirect("/teacher/students");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async teacherAddGroup(req, res) {
+    try {
+      const { name } = req.body;
+      const groups = JSON.parse(allGroups.read());
+      groups.push({
+        id: groups.length + 1,
+        name,
+      });
+      allGroups.write(groups);
+      res.redirect("/teacher/groups");
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
 
 module.exports = new adminController();
