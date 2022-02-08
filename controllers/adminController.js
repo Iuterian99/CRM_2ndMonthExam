@@ -114,6 +114,24 @@ class adminController {
       console.log(err);
     }
   }
+  async teacher__students(_, res) {
+    try {
+      const students = JSON.parse(users.read()).filter(
+        (item) => item.role === "student"
+      );
+      res.render("nestedEJS/teacherStudents.ejs", { students });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async teacher__groups(_, res) {
+    try {
+      const groups = JSON.parse(allGroups.read());
+      res.render("nestedEJS/teacherGroups.ejs", { groups });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = new adminController();

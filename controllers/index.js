@@ -31,7 +31,7 @@ router.get("/admin", (req, res) => {
 });
 
 router.get("/teacher", (req, res) => {
-  res.render("teacher", { students });
+  res.render("teacher");
 });
 
 router
@@ -42,6 +42,7 @@ router
   .post("/admin/teachers", adminController.addTeacher)
   .post("/admin/students", adminController.addStudent)
   .post("/admin/groups", adminController.addGroup)
-  .post("/admin/courses", adminController.addCourse);
+  .get("/teacher/students", adminController.teacher__students)
+  .get("/teacher/groups", adminController.teacher__groups);
 
 module.exports = router;
